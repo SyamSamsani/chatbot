@@ -1,0 +1,40 @@
+import random
+
+def chatbot_response(user_input):
+    user_input = user_input.lower()
+
+    responses = {
+        "hi": "Hello! How can I assist you today?",        
+        "hello": "Hello! How can I assist you today?",
+        "how are you": "I'm just a computer program, so I don't have feelings, but I'm here to help you.",
+        "what's your name": "I'm just a chatbot. You can call me ChatGPT.",
+        "goodbye": "Goodbye! Have a great day!",
+        "who created you": "I was created by a team of developers.",
+        "tell me a joke": "Why did the computer keep freezing? Because it left its Windows open!",
+        "how old are you": "I don't have an age, I'm just a computer program.",
+        "thanks": "You're welcome!",
+        "what is the weather like today": "I'm sorry, I don't have access to real-time weather information.",
+        "can you help me with programming?": "Of course! I can help you with programming questions. What do you need assistance with?",
+        "do you like pizza": "I don't have preferences, but many people enjoy pizza.",
+        "what's the meaning of life": "The meaning of life is a philosophical question with no single answer. It varies from person to person.",
+        "what's the current time": "I'm not able to provide real-time information. You can check the time on your device.",
+    }
+
+    for key in responses:
+        if key in user_input:
+            return responses[key]
+
+    generic_responses = [
+        "I'm sorry, I don't understand. Can you please rephrase your question or statement?",
+        "I'm here to help, but I'm not sure how to respond to that.",
+        "I didn't catch that. Could you please ask again?",
+    ]
+    return random.choice(generic_responses)
+
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == "exit":
+        print("Chatbot: Goodbye!")
+        break
+    response = chatbot_response(user_input)
+    print("Chatbot:", response)
